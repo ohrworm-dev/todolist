@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import { v4 as uuidv4 } from 'uuid';
+// import { v4 as uuidv4 } from 'uuid';
 
 
 export default {
@@ -22,13 +22,13 @@ export default {
         addTodo(e) {
             e.preventDefault();
             const newTodo = {
-                id: uuidv4(),
+                // id: uuidv4(),
                 title: this.title,
                 completed: false
             }
             // Send event up to parent
             this.$emit('add-todo', newTodo);
-            this.title = ''
+            this.title = '';
         }
     }
 }
