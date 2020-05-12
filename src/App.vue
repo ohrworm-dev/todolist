@@ -1,22 +1,23 @@
 <template>
   <div id="app">
     <Header />
-    <AddTodo />
+    <AddTodo v-on:add-todo="addTodo" />
     <Todos v-bind:todos='todos' v-on:del-todo="deleteTodo" />
   </div>
 </template>
 
 <script>
 import Header from './components/layout/Header.vue';
-import Todos from './components/Todos.vue';
 import AddTodo from './components/AddTodo.vue';
+import Todos from './components/Todos.vue';
+
 
 export default {
   name: 'App',
   components: {
     Header,
-    Todos,
-    AddTodo
+    AddTodo,
+    Todos
   },
   data() {
     return {
@@ -42,6 +43,9 @@ export default {
   methods: {
     deleteTodo(id) {
       this.todos = this.todos.filter(todo => todo.id !== id);
+    },
+    addTodo(newTodo) {
+      this.todos = [...this.todos, newTodo];
     }
   }
 }
